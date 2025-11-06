@@ -1,3 +1,4 @@
+# Malik Ikhlef
 def get_raw(num_ligne):
     assert type(num_ligne) == int, "The type of num_ligne must be int"
     with open ('data.csv', 'r', encoding= 'CP1252' ) as lng :
