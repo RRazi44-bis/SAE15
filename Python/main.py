@@ -35,6 +35,14 @@ def action_experimentateur():
 
 # Razi
 def generate_pie_chart(data_dict, fig_name):
+    generate_chart(True, data_dict, fig_name)
+
+# Razi
+def generate_bar_chart(data_dict, fig_name):
+    generate_chart(False, data_dict, fig_name)
+
+# Razi
+def generate_chart(is_pie, data_dict, fig_name):
     list_used = []
     list_frequency = []
 
@@ -44,30 +52,17 @@ def generate_pie_chart(data_dict, fig_name):
     for frequency, used in data_dict.items():
         list_frequency.append(frequency)
         list_used.append(used)
+    
+    if is_pie :
+        plt.pie(list_used, labels=list_frequency)
+    else :
+        plt.bar(list_key, list_value)
 
-    plt.pie(list_used, labels=list_frequency)
     fig = plt.figure(figsize=(10, 7))
     fig.savefig(fig_name)
     plt.close(fig)
     plt.show()
-
-def generate_bar_chart(data_dict, fig_name):
-    list_key = []
-    list_value = []
-
-    for key, value in data_dict.items():
-        assert type(value) == int, "The type of the data in the list must me int"
-
-    for key, value in data_dict.items():
-        list_key.append(key)
-        list_value.append(value)
-
-    plt.bar(list_key, list_value)
-    fig = plt.figure(figsize=(10, 7))
-    fig.savefig(fig_name)
-    plt.close(fig)
-    plt.show()
-
+    
 # Zidane
 def get_column(indice_x):
     column = []
