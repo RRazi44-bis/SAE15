@@ -1,9 +1,9 @@
 import tkinter as tk
+import csv
 
 from tkinter import ttk
 from PIL import Image, ImageTk
 from matplotlib import pyplot as plt
-import csv
 
 SEPARATOR = "#######################################################"
 CSV_FILE_NAME = "data.csv"
