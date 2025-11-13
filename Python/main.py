@@ -17,11 +17,9 @@ def load_data():
     out: Reader
     description : This function return the Reader to just load in memory the data one time.
     """
-    with open(CSV_FILE_NAME, newline='', encoding='CP1252') as csvfile:
-        reader = csv.reader(csvfile, delimiter=';')  # Essaie aussi ',' si nécessaire
-        for line in reader:
-            column.append(line[indice_x])  # Récupère la 3e colonne
-        return reader
+    for line in READER:
+        column.append(line[indice_x])  # Récupère la 3e colonne
+    return reader
 
 # Abdoul Hakim
 def average(list_valeur):
@@ -79,22 +77,18 @@ def generate_chart(is_pie, data_dict, fig_name):
 # Zidane
 def get_column(indice_x):
     column = []
-    with open(CSV_FILE_NAME, newline='', encoding='CP1252') as csvfile:
-        reader = csv.reader(csvfile, delimiter=';')  # Essaie aussi ',' si nécessaire
-        for line in reader:
-            column.append(line[indice_x])  # Récupère la 3e colonne
+    for line in READER:
+        column.append(line[indice_x])  # Récupère la 3e colonne
     return column
 
 # Malik
 def get_raw(num_ligne):
     assert type(num_ligne) == int, "The type of num_ligne must be int"
     i = 0
-    with open(CSV_FILE_NAME, newline='', encoding='CP1252') as csvfile:
-        reader = csv.reader(csvfile, delimiter=';')  # Essaie ',' si nécessaire
-        for line in reader:
-            if i == num_ligne:
-                return line
-            i += 1
+    for line in READER:
+        if i == num_ligne:
+            return line
+        i += 1
     return None
 
 # Razi
