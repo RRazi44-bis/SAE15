@@ -1,4 +1,4 @@
-# 🚀 SAE15 Zidane, Malik, AbdoulHakim, Hugo, Razi
+# 🚀 SAE15 Zidane, Malik, AbdoukHakim, Hugu, Razi
 
 Ce projet génère des informations synthétiques à partir d'un dataset portant sur les expérimentations menées actuellement par l'ARCEP en France sur l'utilisation de la 5G.
 Il permet de générer sous forme de graphique et d'une carte intéractive de synthétiser les informations.
