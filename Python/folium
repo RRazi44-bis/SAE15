@@ -4,7 +4,7 @@ import pandas as pd
 import folium
 
 def cor():           # importation des éléments 
-    data = pd.read_csv("data.csv", encoding='latin-1', sep=';')
+    data = pd.read_csv("data.csv", encoding='CP1252', sep=';')
     if not {"Expérimentateur", "Latitude", "Longitude","Bande de fréquences", "Fréquences attribuées (limite basse)", "Fréquences attribuées (limite haute)",  "Code INSEE", "Début", "Fin", }.issubset(data.columns):
         raise ValueError("Colonnes manquantes")
 
