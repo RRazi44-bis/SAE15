@@ -171,14 +171,6 @@ def count_frequency():
     out: dict_frequency (dict)
     description : This function counts how many times each frequency appears in the CSV data.
     """
-    """ # --> Garder pour montrer aux autres
-    dict_frequency = {} # Clé : fréquence, valeur : nb_iteration
-    list_region = get_column(1) # Récupérer la colonne des fréquence
-    for i in range(len(list_region)):
-        if i != 0:
-            # Deuxième argument de .get est la valeur par défaut si l'objet n'est pas trouvé dans le dictionnaire, ici 0
-            dict_frequency[list_region[i]] = dict_frequency.get(list_region[i], 0) + 1
-    return dict_frequency # Return du dictionnaire"""
     return count(1)
 
 # Razi
@@ -187,14 +179,6 @@ def count_region():
     in : Nothing
     out: dict_region (dict)
     description : This function counts how many times each region appears in the CSV data.
-    """
-    """ # --> Garder pour montrer aux autres
-    dict_region = {}
-    list_region = get_column(11)
-    for i in range(len(list_region)):
-        if i != 0:
-            dict_region[list_region[i]] = dict_region.get(list_region[i], 0) + 1
-    return dict_region
     """
     return count(11)
 
