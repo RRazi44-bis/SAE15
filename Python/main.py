@@ -8,6 +8,18 @@ from matplotlib import pyplot as plt
 SEPARATOR = "#######################################################"
 CSV_FILE_NAME = "data.csv"
 
+READER = load_data()
+
+# Razi
+def load_data():
+    """
+    """
+    with open(CSV_FILE_NAME, newline='', encoding='CP1252') as csvfile:
+        reader = csv.reader(csvfile, delimiter=';')  # Essaie aussi ',' si nécessaire
+        for line in reader:
+            column.append(line[indice_x])  # Récupère la 3e colonne
+        return reader
+
 # Abdoul Hakim
 def average(list_valeur):
     if list_valeur:
@@ -173,4 +185,3 @@ if __name__ == "__main__":
     boutonexperimentateur.grid(column=1, row=3)
 
     fenetre.mainloop()
-
