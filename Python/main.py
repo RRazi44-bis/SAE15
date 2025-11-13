@@ -63,8 +63,6 @@ def generate_chart(is_pie, data_dict, fig_name):
 
     for frequency, used in data_dict.items():
         assert type(used) == int, "The type of the data in the list must me int"
-
-    for frequency, used in data_dict.items():
         list_frequency.append(frequency)
         list_used.append(used)
     
