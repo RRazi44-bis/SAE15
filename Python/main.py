@@ -13,6 +13,9 @@ READER = load_data()
 # Razi
 def load_data():
     """
+    in : Nothing
+    out: Reader
+    description : This function return the Reader to just load in memory the data one time.
     """
     with open(CSV_FILE_NAME, newline='', encoding='CP1252') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')  # Essaie aussi ',' si nécessaire
