@@ -34,7 +34,25 @@ def generate_chart(is_pie, data_dict, fig_name):
     fig.savefig(fig_name)
     plt.close(fig)
     plt.show()
-    
+
+# Razi
+def generate_pie_chart(data_dict, fig_name):
+    """
+    in : data_dict (dict), fig_name (str)
+    out: None
+    description : This function generates a pie chart from the data dictionary and saves it as an image.
+    """
+    generate_chart(True, data_dict, fig_name)
+
+# Razi
+def generate_bar_chart(data_dict, fig_name):
+    """
+    in : data_dict (dict), fig_name (str)
+    out: None
+    description : This function generates a bar chart from the data dictionary and saves it as an image.
+    """
+    generate_chart(False, data_dict, fig_name)
+
 # Zidane
 def get_column(indice_x):
     """
