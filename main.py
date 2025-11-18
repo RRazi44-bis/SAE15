@@ -3,7 +3,6 @@ import pandas
 import os
 
 from tkinter import ttk
-from PIL import Image, ImageTk
 from matplotlib import pyplot as plt
 
 SEPARATOR = "#######################################################"
