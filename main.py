@@ -11,69 +11,6 @@ CSV_FILE_NAME = "data.csv"
 
 dataFrame = pandas.read_csv(CSV_FILE_NAME, encoding='CP1252', sep=';')
 
-# Abdoul Hakim
-def average(list_valeur):
-    """
-    in : list_valeur (list of numbers)
-    out: float
-    description : This function calculates and returns the average value of a list. If the list is empty, it returns 0.
-    """
-    if list_valeur:
-        return sum(list_valeur) / len(list_valeur)
-    else:
-        return 0
-
-# Hugo
-def action_frequence():
-    """
-    in : Nothing
-    out: None
-    description : This function displays the frequency chart image on the Tkinter canvas.
-    """
-    canvas = tk.Canvas(fenetre, width=300, height=200)
-    canvas.grid()
-    canvas.create_image(0, 0, image=photo, anchor="nw")  # fonction qui fera apparaitre le diagramme
-
-# Hugo
-def action_region():
-    """
-    in : Nothing
-    out: None
-    description : This function displays the region chart image on the Tkinter canvas.
-    """
-    canvas = tk.Canvas(fenetre, width=300, height=200)
-    canvas.grid()
-    canvas.create_image(0, 0, image=photo, anchor="nw")  # fonction qui fera apparaitre le diagramme
-
-# Hugo
-def action_experimentateur():
-    """
-    in : Nothing
-    out: None
-    description : This function displays the experimenter chart image on the Tkinter canvas.
-    """
-    canvas = tk.Canvas(fenetre, width=300, height=200)
-    canvas.grid()
-    canvas.create_image(0, 0, image=photo, anchor="nw")  # fonction qui fera apparaitre le diagramme
-
-# Razi
-def generate_pie_chart(data_dict, fig_name):
-    """
-    in : data_dict (dict), fig_name (str)
-    out: None
-    description : This function generates a pie chart from the data dictionary and saves it as an image.
-    """
-    generate_chart(True, data_dict, fig_name)
-
-# Razi
-def generate_bar_chart(data_dict, fig_name):
-    """
-    in : data_dict (dict), fig_name (str)
-    out: None
-    description : This function generates a bar chart from the data dictionary and saves it as an image.
-    """
-    generate_chart(False, data_dict, fig_name)
-
 # Razi
 def generate_chart(is_pie, data_dict, fig_name):
     """
@@ -117,18 +54,6 @@ def get_raw(indice_y):
     """
     return dataFrame.iloc[indice_y].to_list()
 
-# Razi
-def get_cell(x, y):
-    """
-    in : x (int), y (int)
-    out: cell (str) or None
-    description : This function returns the content of a cell located at column x and row y.
-    """
-    row = get_raw(y)
-    if row is not None and 0 <= x < len(row):
-        return row[x]
-    else:
-        return None
 
 # Razi
 def count(column_indice):
@@ -162,16 +87,25 @@ def count_region():
     description : This function counts how many times each region appears in the CSV data.
     """
     return count(11)
+    
+# Razi
+def count_experimenter():
+    """
+    in : Nothing
+    out: dict_experimenter (dict)
+    description : This function counts how many times each experimenters appears in the CSV data.
+    """
+    return count(1)
 
-
+# Hugo
 def action_frequence():
     os.system("start html/Diagramme_des_fréquences.html")            #fonction qui fera apparaitre le diagramme avec du html
 
-
+# Hugo
 def action_region():
     os.system("start html/Diagramme_des_régions.html")             #fonction qui fera apparaitre le diagramme avec du html
 
-
+# Hugo
 def action_experimentateur():
     os.system("start html/Diagramme_des_expérimentateurs.html")            #fonction qui fera apparaitre le diagramme avec du html
 
@@ -182,9 +116,10 @@ if __name__ == "__main__":
     print(count_region())
     print(SEPARATOR)
 
-    generate_pie_chart(count_frequency(), "pie_frequency.png")
-    generate_bar_chart(count_region(), "bar_region.png")
-
+    generate_pie_chart(count_frequency(), "images/pie_frequency.png")
+    generate_bar_chart(count_region(), "images/bar_region.png")
+    generate_bar_chart(count_experimenter(), "images/bar_experimenter.png")
+    
     fenetre=tk.Tk()
     fenetre.title("Interface graphique")
     fenetre.geometry("720x640")            # création de la fenêtre 
