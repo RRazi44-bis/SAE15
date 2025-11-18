@@ -165,15 +165,15 @@ def count_region():
 
 
 def action_frequence():
-    os.system("start Diagramme_des_fréquences.html")            #fonction qui fera apparaitre le diagramme avec du html
+    os.system("start html/Diagramme_des_fréquences.html")            #fonction qui fera apparaitre le diagramme avec du html
 
 
 def action_region():
-    os.system("start Diagramme_des_régions.html")             #fonction qui fera apparaitre le diagramme avec du html
+    os.system("start html/Diagramme_des_régions.html")             #fonction qui fera apparaitre le diagramme avec du html
 
 
 def action_experimentateur():
-    os.system("start Diagramme_des_expérimentateurs.html")            #fonction qui fera apparaitre le diagramme avec du html
+    os.system("start html/Diagramme_des_expérimentateurs.html")            #fonction qui fera apparaitre le diagramme avec du html
 
 if __name__ == "__main__":
 
