@@ -1,5 +1,5 @@
 import tkinter as tk
-import csv
+import pandas
 
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -8,18 +8,7 @@ from matplotlib import pyplot as plt
 SEPARATOR = "#######################################################"
 CSV_FILE_NAME = "data.csv"
 
-READER = load_data()
-
-# Razi
-def load_data():
-    """
-    in : Nothing
-    out: Reader
-    description : This function return the Reader to just load in memory the data one time.
-    """
-    for line in READER:
-        column.append(line[indice_x])  # Récupère la 3e colonne
-    return reader
+dataFrame = pandas.read_csv("data.csv", encoding='CP1252', sep=';')
 
 # Abdoul Hakim
 def average(list_valeur):
@@ -57,7 +46,7 @@ def action_region():
 
 # Hugo
 def action_experimentateur():
-     """
+    """
     in : Nothing
     out: None
     description : This function displays the experimenter chart image on the Tkinter canvas.
@@ -68,7 +57,7 @@ def action_experimentateur():
 
 # Razi
 def generate_pie_chart(data_dict, fig_name):
-     """
+    """
     in : data_dict (dict), fig_name (str)
     out: None
     description : This function generates a pie chart from the data dictionary and saves it as an image.
@@ -91,16 +80,16 @@ def generate_chart(is_pie, data_dict, fig_name):
     out: None
     description : This function creates and saves a chart (pie or bar) based on the given data dictionary.
     """
-    list_used = []
-    list_frequency = []
+    list_key = []
+    list_value = []
 
-    for frequency, used in data_dict.items():
-        assert type(used) == int, "The type of the data in the list must me int"
-        list_frequency.append(frequency)
-        list_used.append(used)
+    for key, value in data_dict.items():
+        assert type(value) == int, "The type of the data in the list must me int"
+        list_key.append(key)
+        list_value.append(value)
     
     if is_pie :
-        plt.pie(list_used, labels=list_frequency)
+        plt.pie(list_value, labels=list_key)
     else :
         plt.bar(list_key, list_value)
 
@@ -116,25 +105,16 @@ def get_column(indice_x):
     out: column (list)
     description : This function returns a list containing all values from the specified column index.
     """
-    column = []
-    for line in READER:
-        column.append(line[indice_x])  # Récupère la 3e colonne
-    return column
+    return dataFrame.iloc[:,indice_x].to_list()
 
 # Malik
-def get_raw(num_ligne):
+def get_raw(indice_y):
     """
-    in : num_ligne (int)
+    in : indice_y (int)
     out: line (list) or None
     description : This function returns the line at the given index from the loaded CSV data.
     """
-    assert type(num_ligne) == int, "The type of num_ligne must be int"
-    i = 0
-    for line in READER:
-        if i == num_ligne:
-            return line
-        i += 1
-    return None
+    return dataFrame.iloc[indice_y].to_list()
 
 # Razi
 def get_cell(x, y):
@@ -163,7 +143,6 @@ def count(column_indice):
             dict_item[list_item[i]] = dict_item.get(list_item[i], 0) + 1
     return dict_item
 
-
 # Razi
 def count_frequency():
     """
@@ -182,6 +161,7 @@ def count_region():
     """
     return count(11)
 
+print(get_column(1))
 
 if __name__ == "__main__":
 
