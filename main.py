@@ -1,5 +1,6 @@
 import tkinter as tk
 import pandas
+import os
 
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -8,7 +9,7 @@ from matplotlib import pyplot as plt
 SEPARATOR = "#######################################################"
 CSV_FILE_NAME = "data.csv"
 
-dataFrame = pandas.read_csv("data.csv", encoding='CP1252', sep=';')
+dataFrame = pandas.read_csv(CSV_FILE_NAME, encoding='CP1252', sep=';')
 
 # Abdoul Hakim
 def average(list_valeur):
@@ -152,6 +153,7 @@ def count_frequency():
     """
     return count(1)
 
+
 # Razi
 def count_region():
     """
@@ -161,7 +163,17 @@ def count_region():
     """
     return count(11)
 
-print(get_column(1))
+
+def action_frequence():
+    os.system("start Diagramme_des_fréquences.html")            #fonction qui fera apparaitre le diagramme avec du html
+
+
+def action_region():
+    os.system("start Diagramme_des_régions.html")             #fonction qui fera apparaitre le diagramme avec du html
+
+
+def action_experimentateur():
+    os.system("start Diagramme_des_expérimentateurs.html")            #fonction qui fera apparaitre le diagramme avec du html
 
 if __name__ == "__main__":
 
@@ -173,39 +185,33 @@ if __name__ == "__main__":
     generate_pie_chart(count_frequency(), "pie_frequency.png")
     generate_bar_chart(count_region(), "bar_region.png")
 
-    fenetre = tk.Tk()
+    fenetre=tk.Tk()
     fenetre.title("Interface graphique")
-    fenetre.geometry("1280x720")   #création de la fenêtre
-
-    frm = ttk.Frame(fenetre)
+    fenetre.geometry("720x640")            # création de la fenêtre 
+    
+    frm=ttk.Frame(fenetre)
     frm.grid()
+    
+    titre=ttk.Label(frm,text="Ensemble des diagrammes")
+    titre.grid(column=0,row=0,pady=20)                        #titre 
 
-    titre = ttk.Label(frm, text="Ensemble des diagrammes")
-    titre.grid(column=0, row=0, pady=50)  # titre
-
-    frequence = ttk.Label(frm,
-                          text="Diagramme de l'utilisation des fréquences")  # Création du texte pour les diagrammes
-    frequence.grid(column=0, row=1, pady=0, padx=0)
-
-    region = ttk.Label(frm, text="Diagramme des régions les plus représentés")  # Création du texte pour les diagrammes
-    region.grid(column=0, row=2, pady=0, padx=0)
-
-    experimentateur = ttk.Label(frm,
-                                text="Diagramme des expérimentateurs les plus représentés")  # Création du texte pour les diagrammes
-    experimentateur.grid(column=0, row=3, pady=0, padx=0)
-
-    img = Image.open("chat.jpg")
-    img = img.resize((300, 200))
-    photo = ImageTk.PhotoImage(img)  # création de l'image
-
-    boutonfrequence = ttk.Button(frm, text="Ouvrir", command=action_frequence)
-    boutonfrequence.grid(column=1, row=1)
-
-    boutonregion = ttk.Button(frm, text="Ouvrir", command=action_region)
-    boutonregion.grid(column=1, row=2)
-
-    boutonexperimentateur = ttk.Button(frm, text="Ouvrir",
-                                       command=action_experimentateur)  # Création des bouton pour afficher les diagrammes
-    boutonexperimentateur.grid(column=1, row=3)
+    frequence=ttk.Label(frm,text="Diagramme de l'utilisation des fréquences")                   #Création du texte pour les diagrammes
+    frequence.grid(column=0,row=1,pady=0,padx=0)
+    
+    region=ttk.Label(frm,text="Diagramme des régions les plus représentés")                     #Création du texte pour les diagrammes
+    region.grid(column=0,row=2,pady=0,padx=0)
+    
+    experimentateur=ttk.Label(frm,text="Diagramme des expérimentateurs les plus représentés")   #Création du texte pour les diagrammes
+    experimentateur.grid(column=0,row=3,pady=0,padx=0)
+    
+    boutonfrequence=ttk.Button(frm,text="Ouvrir",command=action_frequence)
+    boutonfrequence.grid(column=1,row=1)
+    
+    boutonregion=ttk.Button(frm,text="Ouvrir",command=action_region)
+    boutonregion.grid(column=1,row=2)
+    
+    boutonexperimentateur=ttk.Button(frm,text="Ouvrir",command=action_experimentateur)      #Création des bouton pour afficher les diagrammes
+    boutonexperimentateur.grid(column=1,row=3)
 
     fenetre.mainloop()
+    
