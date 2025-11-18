@@ -11,19 +11,27 @@ CSV_FILE_NAME = "data.csv"
 dataFrame = pandas.read_csv(CSV_FILE_NAME, encoding='CP1252', sep=';')
 
 # Razi
+def transform_dict_to_lists(dictionnary):
+    """
+    in : dictionnary (dict)
+    out : list_key, list_value (2 lists)
+    description : This function transform a dictionnary on 2 lists and return it.
+    """
+    list_key = []
+    list_value = []
+    for key, value in dictionnary.items():
+        list_key.append(key)
+        list_value.append(value)
+    return list_key, list_value
+
+# Razi
 def generate_chart(is_pie, data_dict, fig_name):
     """
     in : is_pie (bool), data_dict (dict), fig_name (str)
     out: None
     description : This function creates and saves a chart (pie or bar) based on the given data dictionary.
     """
-    list_key = []
-    list_value = []
-
-    for key, value in data_dict.items():
-        assert type(value) == int, "The type of the data in the list must me int"
-        list_key.append(key)
-        list_value.append(value)
+    list_key, list_value = transform_dict_to_lists(data_dict)
     
     if is_pie :
         plt.pie(list_value, labels=list_key)
@@ -33,7 +41,6 @@ def generate_chart(is_pie, data_dict, fig_name):
     fig = plt.figure(figsize=(10, 7))
     fig.savefig(fig_name)
     plt.close(fig)
-    plt.show()
 
 # Razi
 def generate_pie_chart(data_dict, fig_name):
@@ -166,4 +173,3 @@ if __name__ == "__main__":
     boutonexperimentateur.grid(column=1,row=3)
 
     fenetre.mainloop()
-    
