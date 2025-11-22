@@ -32,13 +32,13 @@ def generate_chart(is_pie, data_dict, fig_name):
     description : This function creates and saves a chart (pie or bar) based on the given data dictionary.
     """
     list_key, list_value = transform_dict_to_lists(data_dict)
-    
+    fig = plt.figure(figsize=(10, 7))
+
     if is_pie :
         plt.pie(list_value, labels=list_key)
     else :
         plt.bar(list_key, list_value)
 
-    fig = plt.figure(figsize=(10, 7))
     fig.savefig(fig_name)
     plt.close(fig)
 
@@ -117,7 +117,7 @@ def count_experimenter():
     """
     in : Nothing
     out: dict_experimenter (dict)
-    description : This function counts how many times each experimenters appears in the CSV data.
+    description : This function counts how many times each experimenter appears in the CSV data.
     """
     return count(1)
 
