@@ -123,7 +123,7 @@ def count_experimenter():
     out: dict_experimenter (dict)
     description : This function counts how many times each experimenter appears in the CSV data.
     """
-    return count(1)
+    return count(0)
 
 # Hugo
 def action_frequence():
