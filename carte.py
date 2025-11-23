@@ -2,6 +2,7 @@
 
 import pandas as pd
 import folium
+import os
 
 def cor():           # importation des éléments 
     data = pd.read_csv("data.csv", encoding='CP1252', sep=';')
@@ -32,4 +33,5 @@ Fin: {fin}<br> """,
         tooltip=experimentateur
     ).add_to(carte)
     
-carte
+carte.save("carte.html")
+os.system("start carte.html")
