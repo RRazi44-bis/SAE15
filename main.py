@@ -10,7 +10,7 @@ CSV_FILE_NAME = "data.csv"
 
 dataFrame = pandas.read_csv(CSV_FILE_NAME, encoding='CP1252', sep=';')
 
-# Razi
+# Abdoul Hakim
 def transform_dict_to_lists(dictionnary):
     """
     in : dictionnary (dict)
