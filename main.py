@@ -1,3 +1,7 @@
+"""
+Toutes les docs des fonctions ont été faites par Zidane.
+"""
+
 import tkinter as tk
 import pandas
 import os
