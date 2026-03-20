@@ -29,7 +29,7 @@ Zidane, Malik, AbdoulHakim, Hugo et Razi.
    ```bash 
    python main.py
    ```
-   Les graphiques seront générés dans le même répertoire et une fenêtre tkinter sera ouverte.
+   Les graphiques seront générés dans le même répertoire et une fenêtre tkinter s'ouvrira.
 
    
 ---
